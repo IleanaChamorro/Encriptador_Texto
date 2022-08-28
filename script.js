@@ -1,7 +1,5 @@
 function encriptar() {
-    var text = document.getElementById("encriptar-texto").value.toLowerCase();
-    
-
+    var text = document.getElementById("inputText").value.toLowerCase();
     var textCifrado = text.replace(/e/igm, "enter"); 
     var textCifrado = textCifrado.replace(/o/igm, "ober"); 
     var textCifrado = textCifrado.replace(/i/igm, "imes"); 
@@ -9,16 +7,15 @@ function encriptar() {
     var textCifrado = textCifrado.replace(/u/igm, "ufat");
     
 
-    document.getElementById("img-no-found").style.display = "none";
-    document.getElementById("text-1").style.display = "none"
+    document.getElementById("img-right").style.display = "none";
+    document.getElementById("text-1").style.display = "none";
     document.getElementById("text-2").innerHTML = textCifrado;
-    document.getElementById("button-3").style.display = "show";
-    document.getElementById("button-3").style.display = "inherit";    
+    document.getElementById("copiar").style.display = "show";
+    document.getElementById("copiar").style.display = "inherit";
 }
 
 function desencriptar() {
-    var text = document.getElementById("encriptar-texto").value.toLowerCase();
-    
+    var text = document.getElementById("inputText").value.toLowerCase();
     var textCifrado = text.replace(/enter/igm, "e"); 
     var textCifrado = textCifrado.replace(/ober/igm, "o"); 
     var textCifrado = textCifrado.replace(/imes/igm, "i"); 
@@ -26,11 +23,16 @@ function desencriptar() {
     var textCifrado = textCifrado.replace(/ufat/igm, "u");
     
 
-    document.getElementById("img-no-found").style.display = "none";
+    document.getElementById("img-right").style.display = "none";
     document.getElementById("text-1").style.display = "none";
     document.getElementById("text-2").innerHTML = textCifrado;
-    document.getElementById("button-3").style.display = "show";
-    document.getElementById("button-3").style.display = "inherit";
+    document.getElementById("copiar").style.display = "show";
+    document.getElementById("copiar").style.display = "inherit";
+}
 
-    
+function copy() {
+    var contenido = document.querySelector("#text-2");
+    contenido.select();
+    document.execCommand("copy");
+    alert("Texto copiado");
 }
